@@ -1,17 +1,13 @@
 # Fantasy Sales League
 
-An eight-team sales contest dashboard with matchups, standings, rosters, scoring controls, and a sale audit.
+[Open the dashboard](https://hnguyen2260.github.io/fantasy-sales-league/)
 
-## Calendar and data
+Eight teams, Wednesday-to-Wednesday matchups, individual contributions, and fantasy points.
 
-Contest weeks run Wednesday to Wednesday in America/Los_Angeles time. Week 1 is September 23 to September 30, 2026. Each Wednesday starts the next week at midnight.
+**Refreshes hourly, Monday-Friday, 8 a.m.-5 p.m. Pacific**. The dashboard shows the time of the most recent successful Salesforce refresh. GitHub Pages can take a few minutes to publish each update. If a refresh fails, the last successful dashboard remains available.
 
-The included statistics are a snapshot through September 28, 2026 at 1:17 p.m. Pacific. Week 1 is in progress; future weeks remain upcoming. Publishing this dashboard does not automatically refresh Salesforce data. Updated statistics require rebuilding and replacing index.html.
+Week 1 is September 23–30, 2026. Each Wednesday at midnight Pacific starts the next week. The eight-week schedule ends November 18. Completed weeks count toward win/loss/tie records; future weeks remain blank.
 
-## GitHub Pages
+Google Cloud Scheduler triggers a Cloud Run job in athletics-bigquery-sandbox. The job reads Salesforce, recalculates the contest, and publishes this self-contained HTML file. Salesforce credentials and the repository deployment key are stored in Google Secret Manager and are not included in this repository or website.
 
-The intended project is hnguyen2260/fantasy-sales-league. Once deployed, its website address will be https://hnguyen2260.github.io/fantasy-sales-league/.
-
-Publish from the main branch, root folder, in Settings > Pages. The self-contained index.html includes the dashboard's styles, fonts, images, scripts, and data. The empty .nojekyll file disables Jekyll processing.
-
-This is a public website. Its visible statistics and embedded data are available to visitors. The repository contains only the website files; Salesforce credentials and working exports are not required for hosting.
+Scoring controls change the viewer's local display. Scheduled refreshes use the approved league scoring rules.
